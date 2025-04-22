@@ -34,8 +34,8 @@ const sketch = () => {
           context.beginPath();
           context.rect(x + off / 2, y + off / 2, w - off, h - off);
           // context.strokeStyle = "white";
-          // context.fillStyle = "black";
-          context.stroke();
+          context.fillStyle = "black";
+          context.fill();
         }
       }
     }

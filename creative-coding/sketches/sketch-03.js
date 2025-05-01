@@ -1,6 +1,7 @@
 const canvasSketch = require('canvas-sketch');
 const random = require('canvas-sketch-util/random');
 
+// Settings, including the canvas size and telling canvas-sketh framework to animate at 60fps
 const settings = {
   dimensions: [ 1080, 1080 ],
   animate: true,
@@ -9,16 +10,19 @@ const settings = {
 const sketch = ({ context, width, height }) => {
   const agents = [];
 
-  for (let i = 0; i < 1680; i++) {
+  // Generate a set of Agents
+  for (let i = 0; i < 999; i++) {
     const x = random.range(0, width);
     const y = random.range(0, height);
     agents.push(new Agent(x, y));
   }
 
   return ({ context, width, height }) => {
+    // Draw the main canvas
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
 
+    // Draw all the Agents
     agents.forEach(agent => {
       agent.update();
       agent.draw(context);
